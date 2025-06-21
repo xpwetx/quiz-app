@@ -1,12 +1,40 @@
-# React + Vite
+# Let's Get Quizzical!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A lightweight quiz app that tests your knowledge with 10 randomized trivia questions pulled from various categories. At the end of the game, you'll see your score and the correct answers. You can play again as many times as you'd like!
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 10-question multiple-choice quiz per session
+- View correct answers after completing the quiz
+- Persistent score/answer history via `localStorage`
+- Error handling and loading indicators
+- Clean and responsive layout
+- Built using modern React best practices
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 📦 Dependencies
+
+- **React** – Component-based UI library
+- **React Router DOM** – Navigation and routing
+- **Custom Components** – `QuestionCard`, `NavBar`, etc.
+- **No direct DOM manipulation** – All handled via React's virtual DOM
+
+---
+
+## 🛠 Installation & Running the App
+
+### Prerequisites
+- Node.js (v16+ recommended)
+- npm
+
+### Steps
+
+```bash
+git clone https://github.com/xpwetx/quiz-app.git
+cd quiz-app
+npm install
+cp .env.local.example .env.local
+npm run dev

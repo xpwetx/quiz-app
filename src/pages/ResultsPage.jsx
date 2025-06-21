@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../App.css';
 
 function ResultsPage() {
   const [score, setScore] = useState(0);
@@ -7,7 +8,7 @@ function ResultsPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const savedScore = localStorage.getItem('quizScore');
+    const savedScore = parseInt(localStorage.getItem('quizScore'), 10) || 0;
     const savedAnswers = JSON.parse(localStorage.getItem('quizAnswers') || '[]');
     setScore(savedScore);
     setUserAnswers(savedAnswers);
@@ -27,7 +28,7 @@ function ResultsPage() {
       <h2>Review your answers:</h2>
       <ul>
         {userAnswers.map((item, index) => (
-          <li key={index}>
+          <li key={item.question}>
             <p dangerouslySetInnerHTML={{ __html: `Q${index + 1}: ${item.question}` }} />
             <p>
               <strong>Your answer:</strong>{' '}
@@ -39,7 +40,9 @@ function ResultsPage() {
             {item.selectedAnswer !== item.correct_answer && (
               <p>
                 <strong>Correct answer:</strong>{' '}
-                <span dangerouslySetInnerHTML={{ __html: item.correct_answer }} />
+                <span
+                style={{ color: 'green' }}
+                dangerouslySetInnerHTML={{ __html: item.correct_answer }} />
               </p>
             )}
           </li>
